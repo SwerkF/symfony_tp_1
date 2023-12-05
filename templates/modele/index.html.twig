@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modeles{% endblock %}
+
+{% block body %}
+<h1>Nos modeles</h1>
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Ajouter un modele
+</button>
+
+<table class="table table-stripped">
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>Nom</td>
+            <td>Prix</td>
+            <td>Marque</td>
+            <td>Actions</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for modele in modeles %}
+            <tr>
+                <td><a href="{{ path('app_modele_id', {'id': modele.id})}}"> {{ modele.id }} </a></td>
+                <td>{{ modele.nom }}</td>
+                <td>{{ modele.prix }} €</td>
+                <td><a href="{{ path('app_marque_id', {'id': modele.marque.id})}}"><img src="{{asset('uploads/images/' ~ modele.marque.logo)}}" style="height: 50px"/></a></td>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('app_modele_id', {'id': modele.id})}}"> Voir </a>
+                    <a class="btn btn-danger" href="{{ path('app_modele_delete', {'id': modele.id})}}"> Supprimer </a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">Aucun modele.</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        {{ form_start(addform) }}
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ajouter une modele</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            {{ form_errors(addform) }}
+            {{ form_row(addform.nom) }}
+            {{ form_row(addform.prix) }}
+            {{ form_row(addform.marque) }}
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            {{ form_row(addform.submit) }}
+        </div>
+        {{ form_end(addform) }}
+        </div>
+    </div>
+</div>
+{% endblock %}

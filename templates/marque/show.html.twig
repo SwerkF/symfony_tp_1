@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Edit {{marque.nom}} {% endblock %}
+
+{% block body %}
+<h1>Edit {{marque.nom}}</h1>
+{{ form_start(editform) }}
+    {{ form_errors(editform) }}
+    {{ form_row(editform.nom) }}
+    {{ form_row(editform.date) }}
+    <div class="row mb-2">
+        <div class="col-2">
+            <img src="{{asset('uploads/images/' ~ marque.logo)}}" style="height: 100px"/>
+        </div>
+        <div class="col-10">
+            {{ form_row(editform.logo) }}
+        </div>
+    </div>
+{{ form_end(editform) }}
+{% endblock %}

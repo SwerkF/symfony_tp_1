@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Edit {{modele.nom}} {% endblock %}
+
+{% block body %}
+<h1>Edit {{modele.nom}}</h1>
+{{ form_start(editform) }}
+    {{ form_errors(editform) }}
+    {{ form_row(editform.nom) }}
+    {{ form_row(editform.prix) }}
+    {{ form_row(editform.marque) }}
+{{ form_end(editform) }}
+{% endblock %}
