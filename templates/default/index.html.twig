@@ -7,8 +7,24 @@
     <h1>Bienvenue sur CG4U</h1>
     <p>Site de location de carte graphique</p>
     <div class="col">
-        <a class="btn btn-primary">Voir les marques</a>
-        <a class="btn">Voir les modeles</a>
+        <a href="{{ path('app_marque') }}" class="btn btn-primary">Voir les marques</a>
+        <a href="{{ path('app_modele') }}" class="btn">Voir les modeles</a>
     </div>
 </div>
+<div class="col mt-5">
+        <h2>Qui sommes nous ?</h2>
+        <p>CG4U est une entreprise de location de carte graphique. Nous proposons des cartes graphiques de dernières générations à la location pour une durée de 1 à 3 mois. Nous proposons également des cartes graphiques d'anciennes générations à la vente.</p>
+    </div>
+
+    <div class="col mt-5">
+        <h2>Comment ça marche ?</h2>
+        <p>Vous pouvez louer une carte graphique pour une durée de 1 à 3 mois. Vous pouvez également acheter une carte graphique d'ancienne génération.</p>
+    </div>
+
+    <div class="col mt-5">
+        <h2>Comment nous contacter ?</h2>
+        <p>Vous pouvez nous contacter par mail à l'adresse suivante :
+            <a href="mailto:mail@mail.mail">contact@mail.com</a>
+        </p>
+    </div>
 {% endblock %}

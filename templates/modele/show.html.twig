@@ -3,11 +3,16 @@
 {% block title %} Edit {{modele.nom}} {% endblock %}
 
 {% block body %}
-<h1>Edit {{modele.nom}}</h1>
-{{ form_start(editform) }}
-    {{ form_errors(editform) }}
-    {{ form_row(editform.nom) }}
-    {{ form_row(editform.prix) }}
-    {{ form_row(editform.marque) }}
-{{ form_end(editform) }}
+
+<div class="card mt-3">
+    <div class="card-header card-title"><h1>Edit {{modele.nom}}</h1></div>
+    <div class="card-body">
+        {{ form_start(editform) }}
+            {{ form_errors(editform) }}
+            {{ form_row(editform.nom) }}
+            {{ form_row(editform.prix) }}
+            {{ form_row(editform.marque) }}
+        {{ form_end(editform) }}
+    </div>
+</div>
 {% endblock %}

@@ -15,28 +15,49 @@
             <td>Nom</td>
             <td>Logo</td>
             <td>Date de création</td>
+            <td>Liste des modèles</td>
             <td>Actions</td>
         </tr>
     </thead>
     <tbody>
         {% for marque in marques %}
             <tr>
-                <td><a href="{{ path('app_marque_id', {'id': marque.id})}}"> {{ marque.id }} </a></td>
+                <td><a href="{{ path('app_marque_id', {'id': marque.id}) }}"> {{ marque.id }} </a></td>
                 <td>{{ marque.nom }}</td>
                 <td><img src="{{asset('uploads/images/' ~ marque.logo)}}" style="height: 50px"/></td>
                 <td>{{ marque.date|date('d/m/Y') }}</td>
                 <td>
+                    <ul>
+                        {% for modele in marque.modeles %}
+                            <li><a href={{path('app_modele_id', {'id': modele.id})}}>{{ modele.nom }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </td>
+                <td>
                     <a class="btn btn-primary" href="{{ path('app_marque_id', {'id': marque.id})}}"> Voir </a>
                     <a class="btn btn-danger" href="{{ path('app_marque_delete', {'id': marque.id})}}"> Supprimer </a>
                 </td>
+                 
             </tr>
         {% else %}
             <tr>
                 <td colspan="6">Aucune marque.</td>
             </tr>
+           
         {% endfor %}
     </tbody>
 </table>
+
+<h2>Colaboration</h2>
+<p>    
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam esse quos nihil sed nostrum cupiditate, possimus id deleniti officia ullam facilis eveniet optio perferendis dolore itaque voluptate tenetur incidunt. Eos! Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet officiis, facilis iure velit illo quos cupiditate impedit, quisquam animi suscipit debitis nostrum sapiente mollitia. Ut sunt maxime reprehenderit in ratione?
+</p>
+
+<h2>Confiance</h2>
+<p>    
+   Quibusdam esse quos nihil sed nostrum cupiditate, possimus id deleniti officia ullam facilis eveniet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio perferendis dolore itaque voluptate tenetur incidunt. Eos! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam animi suscipit debitis nostrum sapiente mollitia. Ut sunt maxime reprehenderit in ratione? Amet officiis, facilis iure velit illo quos cupiditate impedit.
+</p>
+
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
